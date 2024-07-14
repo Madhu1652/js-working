@@ -1,0 +1,20 @@
+1)Finding smallest number?
+function findSmallest(arr) {
+    return Math.min(...arr);
+}
+
+console.log(findSmallest([1, 2, 3, 4, 5]));
+
+2)Finding largest number
+function findLargest(arr) {
+    return Math.max(...arr);
+}
+
+console.log(findLargest([1, 2, 3, 4, 5])); 
+
+3)Finding duplicate array
+function removeDuplicates(arr) {
+    return [...new Set(arr)];
+}
+
+console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5])); 

@@ -1,0 +1,29 @@
+
+1)function sumOfNaturalNumbers(n) {
+    let sum = 0;
+    for (let i = 1; i <= n; i++) {
+        sum += i;
+    }
+    return sum;
+}
+console.log(sumOfNaturalNumbers(10));
+
+2)-------max number-------
+let numbers = [5, 3, 8, 1, 2];
+let max = numbers[0];
+
+for (let i = 1; i < numbers.length; i++) {
+    if (numbers[i] > max) {
+        max = numbers[i];
+    }
+}
+
+console.log(max); // Output: 8
+
+3) i = 1; i < numbers.length; i++) {
+    if (numbers[i] > max) {
+        max = numbers[i];
+    }
+}
+
+console.log(max); // Output: 8
