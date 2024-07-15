@@ -1,0 +1,18 @@
+function mostFrequent(arr) {
+    let frequency = {};
+    let maxFreq = 0;
+    let mostFreqElement = null;
+
+    for (let item of arr) {
+        frequency[item] = (frequency[item] || 0) + 1;
+
+        if (frequency[item] > maxFreq) {
+            maxFreq = frequency[item];
+            mostFreqElement = item;
+        }
+    }
+
+    return mostFreqElement;
+}
+
+console.log(mostFrequent([1, 2, 2, 3, 3, 3, 4])); // Output: 3
