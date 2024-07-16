@@ -1,0 +1,37 @@
+class SimplePromise {
+    constructor(executor) {
+        this.onResolve = null;
+        this.onReject = null;
+
+        const resolve = (value) => {
+            if (this.onResolve) {
+                this.onResolve(value);
+            }
+        };
+
+        const reject = (reason) => {
+            if (this.onReject) {
+                this.onReject(reason);
+            }
+        };
+
+        executor(resolve, reject);
+    }
+
+    then(onResolve) {
+        this.onResolve = onResolve;
+        return this;
+    }
+
+    catch(onReject) {
+        this.onReject = onReject;
+        return this;
+    }
+}
+
+
+new SimplePromise((resolve, reject) => {
+    setTimeout(() => resolve("Success"), 1000);
+}).then((value) => {
+    console.log(value); 
+});

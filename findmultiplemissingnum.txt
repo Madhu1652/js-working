@@ -1,0 +1,14 @@
+function findMultipleMissingNumbers(arr, n) {
+    let set = new Set(arr);
+    let missingNumbers = [];
+
+    for (let i = 1; i <= n; i++) {
+        if (!set.has(i)) {
+            missingNumbers.push(i);
+        }
+    }
+
+    return missingNumbers;
+}
+
+console.log(findMultipleMissingNumbers([1, 2, 4, 6], 6)); // Output: [3, 5]
