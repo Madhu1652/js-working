@@ -1,0 +1,33 @@
+class EventEmitter {
+    constructor() {
+        this.events = {};
+    }
+
+    on(event, listener) {
+        if (!this.events[event]) {
+            this.events[event] = [];
+        }
+        this.events[event].push(listener);
+    }
+
+    emit(event, ...args) {
+        if (this.events[event]) {
+            this.events[event].forEach(listener => listener.apply(this, args));
+        }
+    }
+
+    off(event, listenerToRemove) {
+        if (!this.events[event]) return;
+        this.events[event] = this.events[event].filter(listener => listener !== listenerToRemove);
+    }
+}
+const emitter = new EventEmitter();
+
+function responseToEvent(msg) {
+    console.log(msg);
+}
+
+emitter.on('event', responseToEvent);
+emitter.emit('event', 'Event has been emitted!'); 
+emitter.off('event', responseToEvent);
+emitter.emit('event', 'Event has been emitted!'); 

@@ -1,0 +1,30 @@
+function throttle(func, wait) {
+    let isThrottled = false;
+    let lastArgs, lastThis;
+
+    function wrapper() {
+        if (isThrottled) {
+            lastArgs = arguments;
+            lastThis = this;
+            return;
+        }
+
+        func.apply(this, arguments);
+        isThrottled = true;
+
+        setTimeout(() => {
+            isThrottled = false;
+            if (lastArgs) {
+                wrapper.apply(lastThis, lastArgs);
+                lastArgs = lastThis = null;
+            }
+        }, wait);
+    }
+
+    return wrapper;
+}
+
+// Usage:
+const throttledFunction = throttle(() => console.log('Throttled!'), 2000);
+throttledFunction();
+ 
