@@ -1,0 +1,7 @@
+function isDigitString(str) {
+  const digitRegex = /^\d+$/;
+  return digitRegex.test(str);
+}
+
+console.log(isDigitString('12345')); 
+console.log(isDigitString('123a5')); 
