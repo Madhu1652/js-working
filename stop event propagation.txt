@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Event Propagation Example</title>
+</head>
+<body>
+    <div id="parent" style="padding: 20px; background-color: lightblue;">
+        Parent
+        <div id="child" style="padding: 20px; background-color: lightcoral;">
+            Child
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+-----Javascript------
+// Function to stop event propagation
+function stopEventPropagation(event) {
+    event.stopPropagation();
+}
+const parent = document.getElementById('parent');
+const child = document.getElementById('child');
+
+parent.addEventListener('click', () => {
+    alert('Parent clicked!');
+});
+
+child.addEventListener('click', (event) => {
+    alert('Child clicked!');
+    stopEventPropagation(event); 
+});
